@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class NumberPropsTest extends Component {
     static defaultProps = {
-        name: '독사과'
+        name: 'Default Name'
     }
     static propTypes = {
         name: PropTypes.string,

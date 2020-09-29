@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class DefaultPropsTest extends Component {
     static defaultProps = {
-        name: '일곱난쟁이'
+        name: 'Default Name'
     }
     render() {
         return(
