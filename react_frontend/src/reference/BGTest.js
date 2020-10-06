@@ -8,14 +8,14 @@ class BGTest extends Component {
         validated: false
     }
     handleChange = (e) => {
-        this.setState( {
+        this.setState({
             pw: e.target.value
         })
     }
     handleClick = (e) => {
-        this.setState( {
+        this.setState({
             clicked: true,
-            validated: this.state.pw == 'xxxx'
+            validated: this.state.pw === 'xxxx'
         })
     }
     handleKeyPress = (e) => {
@@ -28,8 +28,8 @@ class BGTest extends Component {
             <div>
                 <h1>Background Test</h1>
                 <input type="password" value={ this.state.pw }
-                    onChange={ this.handleChange }
-                    className={ this.state.clicked ? (this.state.validated ? 'success' : 'failure') : ''}
+                       onChange={ this.handleChange }
+                       className={ this.state.clicked ? (this.state.validated ? 'success' : 'failure') : ''}
                 />
                 <button onClick={
                     this.handleClick

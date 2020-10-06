@@ -27,7 +27,7 @@ class LifeCycleSample extends Component {
         console.log('LifeCycle componentWillUnmount()')
     }
     handleClick = () => {
-        this.setState( {
+        this.setState({
             number: this.state.number + 1
         })
     }
@@ -41,7 +41,7 @@ class LifeCycleSample extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('LifeCycle componentDidUpdate()', prevProps, prevState)
         if (snapshot) {
-            console.log('Before Update Color', snapshot)
+            console.log('Before Update Color: ', snapshot)
         }
     }
     render() {
@@ -52,9 +52,9 @@ class LifeCycleSample extends Component {
         return(
             <div>
                 <h1 style={style} ref={ref => this.myRef=ref}>
-                    { this. state.number }
+                    { this.state.number }
                 </h1>
-                <p>color: {this.state.color }</p>
+                <p>color: { this.state.color }</p>
                 <button onClick={ this.handleClick }>
                     Click
                 </button>
