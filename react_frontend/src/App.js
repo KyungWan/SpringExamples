@@ -1,68 +1,26 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import TodoTemplate from "./todo_components/TodoTemplate";
-import TodoInsert from "./todo_components/TodoInsert";
-import TodoList from "./todo_components/TodoList";
-
-const App = () => {
-    const [todos, setTodos] = useState([
-        {
-            id: 1,
-            text: 'ReactJS',
-            checked: true
-        },
-        {
-            id: 2,
-            text: 'Git',
-            checked: false
-        },
-        {
-            id: 3,
-            text: 'Golang',
-            checked: false
-        },
-    ])
-
-    const nextId = useRef(4)
-
-    const onInsert = useCallback(
-        text => {
-            const todo = {
-                id: nextId.current,
-                text,
-                checked: false
-            }
-
-            setTodos(todos.concat(todo))
-            nextId.current += 1
-        }, [todos]
-    )
-
-    const onRemove = useCallback(
-        id => {
-            setTodos(todos.filter(todo => todo.id !== id))
-        }, [todos]
-    )
-
-    const onToggle = useCallback(
-        id => {
-            setTodos(
-                todos.map(todo =>
-                    todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-                ),
-            );
-        }, [todos],
-    );
-
-    return (
-        <div>
-            <div>Todo App</div>
-            <TodoTemplate>
-                <TodoInsert onInsert={ onInsert }/>
-                <TodoList todos={ todos } onRemove={ onRemove } onToggle={ onToggle }/>
-            </TodoTemplate>
-        </div>
-    );
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
